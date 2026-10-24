@@ -37,7 +37,7 @@ uv run ruff check .
 docker compose up --build -d
 uv run --env-file .env dbt debug --project-dir dbt --profiles-dir dbt
 uv run --env-file .env dbt build --project-dir dbt --profiles-dir dbt
-uv run --env-file .env python scripts/read_raw.py --path "s3://raw/green_tripdata/ingested_on=2026-01-01/green_tripdata_2025-01.parquet"
+uv run --env-file .env python scripts/read_raw.py --path "s3://raw/movie_industry/ingested_on=2026-10-24/movies.csv"
 docker compose down
 ```
 
@@ -50,3 +50,8 @@ docker compose down
 - `scripts/` — кроссплатформенные точки входа для локальных проверок.
 - `dbt/` — dbt-модели, материализуемые во внешние Parquet-файлы SeaweedFS.
 - `infra/` — место для инфраструктурных материалов следующих лабораторных работ.
+
+## Выполненные работы
+
+- **ЛР № 1:** [`docs/project_brief.md`](docs/project_brief.md) — постановка задачи и паспорт набора данных *Movie Industry* (`movies.csv`, полные десятилетия `1980–2019`).
+- **ЛР № 2:** [`airflow/dags/ingest_raw.py`](airflow/dags/ingest_raw.py), [`src/ingestion/load_raw.py`](src/ingestion/load_raw.py), [`src/analysis/read_raw.py`](src/analysis/read_raw.py) — идемпотентная загрузка исходного CSV-файла в слой `raw` SeaweedFS и проверка чтения через DuckDB.
