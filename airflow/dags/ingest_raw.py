@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from urllib.parse import urlsplit
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.providers.http.sensors.http import HttpSensor
-from airflow.utils.dates import days_ago
 
 from ingestion.load_raw import load_to_raw
 
@@ -27,9 +27,12 @@ if parsed_source.query:
 with DAG(
     dag_id="ingest_raw",
     description="Проверка доступности файла movies.csv по HTTP и идемпотентная загрузка в raw.",
-    start_date=days_ago(1),
+    # Фиксированная логическая дата: запуск «с чистого листа» создаёт ровно одну партицию
+    # ingested_on=2026-10-24, которую читает ноутбук ЛР № 3.
+    start_date=datetime(2026, 10, 24),
+    end_date=datetime(2026, 10, 24),
     schedule="@daily",
-    catchup=False,
+    catchup=True,
     max_active_runs=1,
     tags=["lab-02", "raw", "movie-industry"],
 ) as dag:
