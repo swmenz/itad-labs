@@ -48,6 +48,7 @@ docker compose down
 - `airflow/dags/` — DAG'и оркестрации.
 - `src/` — код ingestion, проверки и анализа.
 - `scripts/` — кроссплатформенные точки входа для локальных проверок.
+- `notebooks/` — ноутбук профилирования, проверок качества и подготовки `staging`.
 - `dbt/` — dbt-модели, материализуемые во внешние Parquet-файлы SeaweedFS.
 - `infra/` — место для инфраструктурных материалов следующих лабораторных работ.
 
@@ -55,3 +56,4 @@ docker compose down
 
 - **ЛР № 1:** [`docs/project_brief.md`](docs/project_brief.md) — постановка задачи и паспорт набора данных *Movie Industry* (`movies.csv`, полные десятилетия `1980–2019`).
 - **ЛР № 2:** [`airflow/dags/ingest_raw.py`](airflow/dags/ingest_raw.py), [`src/ingestion/load_raw.py`](src/ingestion/load_raw.py), [`src/analysis/read_raw.py`](src/analysis/read_raw.py) — идемпотентная загрузка исходного CSV-файла в слой `raw` SeaweedFS и проверка чтения через DuckDB.
+- **ЛР № 3:** [`notebooks/profile_quality.ipynb`](notebooks/profile_quality.ipynb), [`docs/data_quality_report.md`](docs/data_quality_report.md) — профилирование сырого снимка, проверка шести правил качества данных и запись слоёв `staging.parquet` и `quarantine.parquet` в SeaweedFS.
