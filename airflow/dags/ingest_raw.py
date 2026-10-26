@@ -31,7 +31,7 @@ with DAG(
     # ingested_on=2026-10-24, которую читает ноутбук ЛР № 3.
     start_date=datetime(2026, 10, 24),
     end_date=datetime(2026, 10, 24),
-    schedule="@daily",
+    schedule_interval="@daily",
     catchup=True,
     max_active_runs=1,
     tags=["lab-02", "raw", "movie-industry"],
