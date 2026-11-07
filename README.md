@@ -48,7 +48,7 @@ docker compose down
 - `airflow/dags/` — DAG'и оркестрации.
 - `src/` — код ingestion, проверки и анализа.
 - `scripts/` — кроссплатформенные точки входа для локальных проверок.
-- `notebooks/` — ноутбуки профилирования качества (`staging`) и сборки аналитической витрины (`mart`).
+- `notebooks/` — ноутбуки профилирования качества (`staging`), сборки витрины (`mart`) и расчёта метрик.
 - `dbt/` — dbt-модели, материализуемые во внешние Parquet-файлы SeaweedFS.
 - `infra/` — место для инфраструктурных материалов следующих лабораторных работ.
 
@@ -58,3 +58,4 @@ docker compose down
 - **ЛР № 2:** [`airflow/dags/ingest_raw.py`](airflow/dags/ingest_raw.py), [`src/ingestion/load_raw.py`](src/ingestion/load_raw.py), [`src/analysis/read_raw.py`](src/analysis/read_raw.py) — идемпотентная загрузка исходного CSV-файла в слой `raw` SeaweedFS и проверка чтения через DuckDB.
 - **ЛР № 3:** [`notebooks/profile_quality.ipynb`](notebooks/profile_quality.ipynb), [`docs/data_quality_report.md`](docs/data_quality_report.md) — профилирование сырого снимка, проверка шести правил качества данных и запись слоёв `staging.parquet` и `quarantine.parquet` в SeaweedFS.
 - **ЛР № 4:** [`notebooks/build_mart.ipynb`](notebooks/build_mart.ipynb), [`docs/mart.md`](docs/mart.md) — проектирование и сборка аналитической витрины `movies.parquet` в слое `mart` SeaweedFS.
+- **ЛР № 5:** [`notebooks/calculate_metrics.ipynb`](notebooks/calculate_metrics.ipynb), [`docs/metrics.md`](docs/metrics.md) — расчёт SQL-метрик на витрине `movies.parquet`, оконная функция и подготовка выборок в памяти DuckDB для визуального анализа.
