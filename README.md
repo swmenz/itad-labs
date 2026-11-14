@@ -59,3 +59,4 @@ docker compose down
 - **ЛР № 3:** [`notebooks/profile_quality.ipynb`](notebooks/profile_quality.ipynb), [`docs/data_quality_report.md`](docs/data_quality_report.md) — профилирование сырого снимка, проверка шести правил качества данных и запись слоёв `staging.parquet` и `quarantine.parquet` в SeaweedFS.
 - **ЛР № 4:** [`notebooks/build_mart.ipynb`](notebooks/build_mart.ipynb), [`docs/mart.md`](docs/mart.md) — проектирование и сборка аналитической витрины `movies.parquet` в слое `mart` SeaweedFS.
 - **ЛР № 5:** [`notebooks/calculate_metrics.ipynb`](notebooks/calculate_metrics.ipynb), [`docs/metrics.md`](docs/metrics.md) — расчёт SQL-метрик на витрине `movies.parquet`, оконная функция и подготовка выборок в памяти DuckDB для визуального анализа.
+- **ЛР № 6:** [`docs/lineage.md`](docs/lineage.md) — документирование аналитического контура (data lineage), трассировка метрики до слоя `raw` и анализ влияния изменений.
